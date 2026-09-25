@@ -25,3 +25,152 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdro
 
 .founder-mini-wrap{background:#fff;padding:0 0 10px}.founder-mini{display:flex;align-items:center;gap:13px;margin-left:auto;width:fit-content;background:#fff;border:1px solid #e1e4de;border-radius:14px;padding:9px 13px;box-shadow:0 10px 28px rgba(34,45,36,.07)}.founder-mini img{width:50px;height:50px;border-radius:50%;object-fit:cover;object-position:center top}.founder-mini strong,.founder-mini span,.founder-mini em{display:block}.founder-mini strong{font:700 14px Manrope;color:#20251f}.founder-mini span{font-size:11px;color:#70766f}.founder-mini em{font-size:10px;font-style:normal;font-weight:700;color:#8b6a2f}.founder-photo{overflow:hidden}.founder-photo img{width:100%;height:100%;display:block;object-fit:cover;object-position:center top}
 @media(max-width:700px){.founder-mini{margin:0 auto 0 0}.founder-mini-wrap{padding-bottom:6px}}
+/* =========================================
+   NELLAI EMIRATES TOWN PHOTO GALLERY
+========================================= */
+
+.project-gallery {
+    background: #eef2ed;
+    border-radius: 18px;
+    overflow: hidden;
+    padding: 12px;
+}
+
+.gallery-main {
+    position: relative;
+    height: 390px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #dfe5df;
+}
+
+.gallery-main > img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.gallery-main .visual-badge {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    z-index: 3;
+}
+
+.gallery-prev,
+.gallery-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,.92);
+    color: #245c3c;
+    font-size: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 5;
+    box-shadow: 0 5px 18px rgba(0,0,0,.15);
+}
+
+.gallery-prev {
+    left: 15px;
+}
+
+.gallery-next {
+    right: 15px;
+}
+
+.gallery-prev:hover,
+.gallery-next:hover {
+    background: #245c3c;
+    color: #fff;
+}
+
+.gallery-count {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    background: rgba(0,0,0,.65);
+    color: #fff;
+    padding: 6px 11px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.gallery-thumbs {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 7px;
+    margin-top: 10px;
+}
+
+.gallery-thumb {
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 7px;
+    overflow: hidden;
+    background: transparent;
+    cursor: pointer;
+    height: 58px;
+}
+
+.gallery-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-thumb.active {
+    border-color: #245c3c;
+}
+
+.gallery-thumb:hover {
+    border-color: #9a7838;
+}
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+    .gallery-main {
+        height: 330px;
+    }
+
+    .gallery-thumbs {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .gallery-main {
+        height: 260px;
+    }
+
+    .gallery-thumbs {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery-thumb {
+        height: 55px;
+    }
+
+    .gallery-prev,
+    .gallery-next {
+        width: 38px;
+        height: 38px;
+        font-size: 25px;
+    }
+
+}
