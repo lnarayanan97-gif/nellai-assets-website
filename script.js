@@ -21,3 +21,91 @@ document.querySelectorAll('[data-project]').forEach(link=>link.addEventListener(
 
 const enquiryForm=document.getElementById('form');
 if(enquiryForm){enquiryForm.addEventListener('submit',function(e){e.preventDefault();const f=this;const v=n=>f.querySelector(`[name="${n}"]`)?.value.trim()||'Not specified';const text=`*NELLAI ASSETS — PROPERTY ENQUIRY*\n\n*Customer Details*\nName: ${v('name')}\nMobile: ${v('phone')}\n\n*Requirement*\nProperty: ${v('property')}\nArea: ${v('area')}\nBudget: ${v('budget')}\nContact Preference: ${v('contact')}\nMessage: ${v('message')}\n\n*Nellai Assets*\nTirunelveli Property & Real Estate`;window.open('https://wa.me/919360390690?text='+encodeURIComponent(text),'_blank');const m=document.getElementById('msg');if(m)m.textContent='Opening WhatsApp with your enquiry...';});}
+/* =========================================
+   NELLAI EMIRATES TOWN GALLERY
+========================================= */
+
+const emiratesImages = [
+    "images/emirates/emirates-01.jpeg",
+    "images/emirates/emirates-02.jpeg",
+    "images/emirates/emirates-03.jpeg",
+    "images/emirates/emirates-04.jpeg",
+    "images/emirates/emirates-05.jpeg",
+    "images/emirates/emirates-06.jpeg",
+    "images/emirates/emirates-07.jpeg",
+    "images/emirates/emirates-08.jpeg",
+    "images/emirates/emirates-09.jpeg"
+];
+
+let emiratesCurrent = 0;
+
+const emiratesMainImage =
+    document.getElementById("emiratesMainImage");
+
+const galleryCount =
+    document.getElementById("galleryCount");
+
+const galleryThumbs =
+    document.querySelectorAll(".gallery-thumb");
+
+
+function showEmiratesImage(index) {
+
+    emiratesCurrent =
+        (index + emiratesImages.length) %
+        emiratesImages.length;
+
+    emiratesMainImage.src =
+        emiratesImages[emiratesCurrent];
+
+    galleryCount.textContent =
+        `${emiratesCurrent + 1} / ${emiratesImages.length}`;
+
+    galleryThumbs.forEach((thumb, i) => {
+
+        thumb.classList.toggle(
+            "active",
+            i === emiratesCurrent
+        );
+
+    });
+}
+
+
+/* PREVIOUS */
+
+document
+    .getElementById("galleryPrev")
+    .addEventListener("click", () => {
+
+        showEmiratesImage(
+            emiratesCurrent - 1
+        );
+
+    });
+
+
+/* NEXT */
+
+document
+    .getElementById("galleryNext")
+    .addEventListener("click", () => {
+
+        showEmiratesImage(
+            emiratesCurrent + 1
+        );
+
+    });
+
+
+/* THUMBNAIL CLICK */
+
+galleryThumbs.forEach((thumb, index) => {
+
+    thumb.addEventListener("click", () => {
+
+        showEmiratesImage(index);
+
+    });
+
+});
